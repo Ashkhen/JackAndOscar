@@ -21,6 +21,7 @@ class SecondPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudio
     var image_2: UIImage!
     var image_3: UIImage!
     var image_4: UIImage!
+    var image_5: UIImage!
     
     var images: [UIImage]!
    
@@ -33,8 +34,9 @@ class SecondPageViewController: UIViewController, AVAudioPlayerDelegate, AVAudio
         image_2 = UIImage(named: "jack2Eyelids_halfopen")
         image_3 = UIImage(named: "jack2Eyelids_halfopen_2")
         image_4 = UIImage(named: "jack2Eyelids")
+        image_5 = UIImage(named: "transparent")
         
-        images = [image_1, image_2, image_3, image_4]
+        images = [image_1, image_2, image_3, image_4, image_5]
         animatedImage = UIImage.animatedImageWithImages(images, duration:0.6)
         
         CurrentView.instance.setView(1, view: self)

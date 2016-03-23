@@ -11,25 +11,33 @@ import UIKit
 class SixthPageViewController: UIViewController {
 
     @IBOutlet weak var duckEyeImageView: UIImageView!
+    
+    var image_1: UIImage!
+    var image_2: UIImage!
+    var image_3: UIImage!
+    
+    var images: [UIImage]!
+    var animatedImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        duckEyeImageView.hidden = true
-
+        
+        image_1 = UIImage(named: "transparent")
+        image_2 = UIImage(named: "oscar6Eyelids")
+        image_3 = UIImage(named: "transparent")
+        
+        images = [image_1, image_2, image_3]
+        animatedImage = UIImage.animatedImageWithImages(images, duration:1)
+        
+        duckEyeImageView.image = animatedImage
+//        Utils().delay(1.0) {
+//            self.duckEyeImageView.image = nil
+//        }
+        
          CurrentView.instance.setView(5, view: self)    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-
-    @IBAction func onDuckTap(sender: UITapGestureRecognizer) {
-        if duckEyeImageView.hidden == false {
-            duckEyeImageView.hidden = true
-        } else {
-            duckEyeImageView.hidden = false
-        }
-        
     }
 }
