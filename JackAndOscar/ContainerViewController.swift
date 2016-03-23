@@ -67,14 +67,19 @@ class ContainerViewController: UIViewController, AVAudioPlayerDelegate, AVAudioR
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("Finished playing")
-        self.storyboardController.turnPage()
+        if (isAutoPlayOn) {
+            self.storyboardController.turnPage()
         }
+    }
     
        
     @IBAction func onDismissTap() {
-        audioPlayer.pause()
+        if (audioPlayer != nil) {
+            audioPlayer.pause()
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
 
     @IBAction func onAudioTap(sender: AnyObject) {
         let viewInfo = CurrentView.instance.getView()
@@ -113,7 +118,7 @@ class ContainerViewController: UIViewController, AVAudioPlayerDelegate, AVAudioR
         case 16:
             playAudio("Page-16")
         case 17:
-            playAudio("Pagr-17")
+            playAudio("Page-17")
         case 18:
             playAudio("Page-18")
         case 19:

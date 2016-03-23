@@ -29,7 +29,7 @@ class StorytimeViewController: UIPageViewController {
     }
     
     func turnPage() {
-        let index = CurrentView.instance.getView().number + 1
+        let index = CurrentView.instance.getView().number
         if (index < orderedViewControllers.count) {
             setViewControllers([orderedViewControllers[index]],
                 direction: .Forward,
