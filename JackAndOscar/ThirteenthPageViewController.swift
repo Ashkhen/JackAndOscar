@@ -17,7 +17,7 @@ class ThirteenthPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         CurrentView.instance.setView(12, view: self)
         
-        let armFallOffGesture = UITapGestureRecognizer(target: self, action: #selector(ThirteenthPageViewController.armFallsOff))
+        let armFallOffGesture = UITapGestureRecognizer(target: self, action: nil)
         armFallOffGesture.numberOfTapsRequired = 10;
         self.cowArmImageView.addGestureRecognizer(armFallOffGesture)
         self.cowArmImageView.userInteractionEnabled = true;
