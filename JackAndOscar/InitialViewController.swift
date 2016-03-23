@@ -24,15 +24,34 @@ class InitialViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController as UIViewController!
-        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        fadeTransition = FadeTransition()
-        destinationViewController.transitioningDelegate = fadeTransition
-        fadeTransition.duration = 0.5
+        if let destinationViewController = segue.destinationViewController as? ContainerViewController
+        {
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            fadeTransition = FadeTransition()
+            destinationViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 0.5
+            if let x = sender as? String {
+                if x == "autoplay" {
+                    destinationViewController.isAutoPlayOn = true
+                }
+                
+                else {
+                    destinationViewController.isAutoPlayOn = false
+                }
+                
+            }
+                
+        }
+        
     }
     
     @IBAction func onReadMyselfButton(sender: AnyObject) {
-        performSegueWithIdentifier("goToStorytimeSegue", sender: nil)
+        performSegueWithIdentifier("goToStorytimeSegue", sender: "readMyself")
     }
 
+    @IBAction func onAutoPlayButton(sender: AnyObject) {
+        performSegueWithIdentifier("goToStorytimeSegue", sender: "autoplay")
+    }
+
+    
 }
