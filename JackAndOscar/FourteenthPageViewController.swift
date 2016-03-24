@@ -36,13 +36,13 @@ class FourteenthPageViewController: UIViewController {
         self.hillTwo.center.y = 300
         self.hillThree.center.y = 400
         
-        UIView.animateWithDuration(0.5){
+        UIView.animateWithDuration(0.9){
             self.hillOne.center.y = 340
         }
-        UIView.animateWithDuration(0.4){
+        UIView.animateWithDuration(0.7){
             self.hillTwo.center.y = 254
         }
-        UIView.animateWithDuration(0.3){
+        UIView.animateWithDuration(0.5){
             self.hillThree.center.y = 256
         }
         UIView.animateWithDuration(2.0, animations: { () -> Void in
